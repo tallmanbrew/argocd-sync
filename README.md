@@ -17,19 +17,19 @@ Add the following step to your GitHub Actions workflow file:
         restart-deployments: True
 ```
 
-Inputs
+### Inputs
 This action requires the following environment variables:
 
-`argocd-http-server`: (Required) The http address of your ArgoCD server.
-`argocd-grpc-server`: The grpc address of your ArgoCD server.
-`argocd-token`: (Required) ArgoCD API Token.
-`application`: (Required) Application name to sync.
+`argocd-http-server`: (Required) The http address of your ArgoCD server  
+`argocd-grpc-server`: The grpc address of your ArgoCD server.  
+`argocd-token`: (Required) ArgoCD API Token.  
+`application`: (Required) Application name to sync.  
 `restart-deployments`: (Required) True | False Restart the applications after sync to pickup new image.
 
-Outputs
+### Outputs
 This action does not have any outputs.
 
-Example
+## Example
 Here's an example of how to use this action in a workflow:
 
 ```yaml
