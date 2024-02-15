@@ -9,12 +9,12 @@ Add the following step to your GitHub Actions workflow file:
 ```yaml
 - name: Sync ArgoCD Applications
   uses: tallmanbrew/argocd-sync@v1
-    with:
-        argocd-http-server: ${{ secrets.ARGOCD_HTTP_SERVER }}
-        argocd-grpc-server: ${{ secrets.ARGOCD_GRPC_SERVER }}
-        argocd-token: ${{ secrets.ARGOCD_TOKEN }}
-        application: application-name
-        restart-deployments: True
+  with:
+      argocd-http-server: ${{ secrets.ARGOCD_HTTP_SERVER }}
+      argocd-grpc-server: ${{ secrets.ARGOCD_GRPC_SERVER }}
+      argocd-token: ${{ secrets.ARGOCD_TOKEN }}
+      application: application-name
+      restart-deployments: True
 ```
 
 ### Inputs
