@@ -33,6 +33,7 @@ runs:
         then
           curl -sSL -o /usr/local/bin/argocd https://${ARGOCD_SERVER}/download/argocd-linux-amd64
           chmod +x /usr/local/bin/argocd
+        fi
     - id: set-argocd-server
       name: Set ArgoCD Server
       shell: bash
