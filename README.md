@@ -12,7 +12,7 @@ Add the following step to your GitHub Actions workflow file:
   with:
       argocd-http-server: ${{ secrets.ARGOCD_HTTP_SERVER }}
       argocd-grpc-server: ${{ secrets.ARGOCD_GRPC_SERVER }}
-      argocd-token: ${{ secrets.ARGOCD_TOKEN }}
+      argocd-token: ${{ secrets.ARGO_TOKEN }}
       application: application-name
       restart-deployments: True
 ```
@@ -53,7 +53,7 @@ jobs:
       with:
         argocd-http-server: ${{ secrets.ARGOCD_HTTP_SERVER }}
         argocd-grpc-server: ${{ secrets.ARGOCD_GRPC_SERVER }}
-        argocd-token: ${{ secrets.ARGOCD_TOKEN }}
+        argocd-token: ${{ secrets.ARGO_TOKEN }}
         application: application-name
         restart-deployments: True
 ```
