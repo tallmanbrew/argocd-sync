@@ -55,11 +55,11 @@ runs:
         ARGOCD_APP_NAME: ${{ inputs.application }}
         RESTART_DEPLOYMENTS: ${{ inputs.restart-deployments }}
       run: |
-        argocd app get $ARGOCD_APP_NAME --hard-refresh
-        argocd app sync --prune $ARGOCD_APP_NAME
+        argocd app get $ARGOCD_APP_NAME --hard-refresh --loglevel debug
+        argocd app sync --prune $ARGOCD_APP_NAME --loglevel debug
         if [ "$(echo "$RESTART_DEPLOYMENTS" | tr '[:upper:]' '[:lower:]')" = "true" ]
         then
           appjson="$(argocd app get argocd/$ARGOCD_APP_NAME -o json)"
           deployments="$(echo $appjson | jq '.status.resources[] | select(select(.kind | contains("Deployment")).name | . != "redis").name' | sed 's/"//g')"
-          for deployment in $deployments ; do argocd app actions run $ARGOCD_APP_NAME restart --kind Deployment --resource-name $deployment ; echo "=====" ; done
+          for deployment in $deployments ; do argocd app actions run $ARGOCD_APP_NAME restart --kind Deployment --resource-name $deployment --loglevel debug ; echo "=====" ; done
         fi
